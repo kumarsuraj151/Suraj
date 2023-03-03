@@ -125,12 +125,27 @@ export default function Home() {
                 </h1>
               </div>
               <div className="mt-5">
-                <h2 className="text-4xl font-medium text-center mb-4">
+                <motion.h2  initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true }}
+      transition={{ duration: 0.6 }}
+      variants={{
+        visible: { opacity: 1, scale: 1 },
+        hidden: { opacity: 0, scale: 0 }
+      }}   className="text-4xl font-medium text-center mb-4">
                   Suraj kumar
-                </h2>
-                <p className="text-1xl font-normal text-center mb-4">
+                </motion.h2>
+                <motion.p initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true }}
+      transition={{ duration: 0.8 }}
+      variants={{
+        visible: { opacity: 1, scale: 1 },
+        hidden: { opacity: 0, scale: 0 }
+      }} 
+      className="text-1xl font-normal text-center mb-4">
                   Ai student and full-stack Developer
-                </p>
+                </motion.p>
                 <div className="text-center mb-4">
                   facebook,instagram ,github
                 </div>
