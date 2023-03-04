@@ -2,10 +2,16 @@ import Head from "next/head";
 import Image from "next/image";
 import { Inter } from "next/font/google";
 import styles from "@/styles/Home.module.css";
-import { color, motion } from "framer-motion";
+import { color, motion, spring } from "framer-motion";
 import { InView } from "react-intersection-observer";
 import { Link } from "react-scroll";
 import img from "@/public/header-background.jpg";
+import { AiFillCalendar } from "react-icons/ai";
+import { AiOutlineMail } from "react-icons/ai";
+import { AiTwotonePhone } from "react-icons/ai";
+import { BiMap } from "react-icons/bi";
+import { Line, Circle } from 'rc-progress';
+import Skills from "@/components/skill";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -117,7 +123,11 @@ export default function Home() {
         </header>
         <div className="w-[95%] md:w-[90%]  my-12 mx-auto">
           <div className=" relative bg-no-repeat bg-cover shadow-xl">
-            <Image src={img} alt="image" className="opacity-50 brightness-[.3] h-[550px] " />
+            <Image
+              src={img}
+              alt="image"
+              className="opacity-50 brightness-[.3] h-[550px] "
+            />
             <div className="p-[4rem] w-full h-full absolute top-0">
               <div>
                 <h1 className="w-[160px] h-[160px] m-auto border-[0.5px] border-yellow-50">
@@ -125,25 +135,30 @@ export default function Home() {
                 </h1>
               </div>
               <div className="mt-5">
-                <motion.h2  initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true }}
-      transition={{ duration: 0.6 }}
-      variants={{
-        visible: { opacity: 1, scale: 1 },
-        hidden: { opacity: 0, scale: 0 }
-      }}   className="text-4xl font-medium text-center mb-4">
+                <motion.h2
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6 }}
+                  variants={{
+                    visible: { opacity: 1, scale: 1 },
+                    hidden: { opacity: 0, scale: 0 },
+                  }}
+                  className="text-4xl font-medium text-center mb-4"
+                >
                   Suraj kumar
                 </motion.h2>
-                <motion.p initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true }}
-      transition={{ duration: 0.8 }}
-      variants={{
-        visible: { opacity: 1, scale: 1 },
-        hidden: { opacity: 0, scale: 0 }
-      }} 
-      className="text-1xl font-normal text-center mb-4">
+                <motion.p
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.8 }}
+                  variants={{
+                    visible: { opacity: 1, scale: 1 },
+                    hidden: { opacity: 0, scale: 0 },
+                  }}
+                  className="text-1xl font-normal text-center mb-4"
+                >
                   Ai student and full-stack Developer
                 </motion.p>
                 <div className="text-center mb-4">
@@ -154,17 +169,29 @@ export default function Home() {
                 "
                 >
                   <InView threshold={0.59}>
-                    {({ref,inView})=>(
-                      <motion.button ref={ref} initial={{x:-100,opacity:0.1}} animate={ inView ? {x:0,opacity:1}:{opacity:0}} transition={{duration:1}} className="bg-transparent mr-3 hover:bg-white-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded">
-                      Button
-                    </motion.button>
+                    {({ ref, inView }) => (
+                      <motion.button
+                        ref={ref}
+                        initial={{ x: -100, opacity: 0.1 }}
+                        animate={inView ? { x: 0, opacity: 1 } : { opacity: 0 }}
+                        transition={{ duration: 1 }}
+                        className="bg-transparent mr-3 hover:bg-white-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded"
+                      >
+                        Button
+                      </motion.button>
                     )}
                   </InView>
                   <InView threshold={0.2}>
-                    {({ref,inView})=>(
-                      <motion.button ref={ref} initial={{x:100,opacity:0.1}} animate={ inView ? {x:0,opacity:1}:{opacity:0}} transition={{duration:1}} className="bg-blue-300 mr-3 hover:bg-white-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded">
-                      Button
-                    </motion.button>
+                    {({ ref, inView }) => (
+                      <motion.button
+                        ref={ref}
+                        initial={{ x: 100, opacity: 0.1 }}
+                        animate={inView ? { x: 0, opacity: 1 } : { opacity: 0 }}
+                        transition={{ duration: 1 }}
+                        className="bg-blue-300 mr-3 hover:bg-white-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded"
+                      >
+                        Button
+                      </motion.button>
                     )}
                   </InView>
                 </div>
@@ -172,162 +199,66 @@ export default function Home() {
             </div>
           </div>
           <InView threshold={0.25}>
-                    {({ref,inView})=>(    
-
-          <motion.div
-          ref={ref}
-            initial={{ opacity: 0 }}
-            animate={inView ? { opacity: 1 } :{opacity:0.4}} 
-            transition={{type: "spring",
-            damping: 12,
-            stiffness: 200}}
-            className="my-12 box-border p-12 shadow-md"
-            id="about"
-          >
-            <h1 className="text-3xl mb-5">About</h1>
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-            Accusantium, ducimus quisquam quis, nisi modi reprehenderit, quam
-            delectus vitae illum voluptate dolorem cumque. Rem nobis at illo
-            neque iure eos, dolor, autem ratione mollitia molestiae cum vitae
-            quod temporibus eveniet aliquid accusantium enim impedit sequi
-            dolores repudiandae nesciunt. Beatae tempora mollitia repudiandae
-            ratione, nemo praesentium. Omnis, officiis quos. Consequatur
-            temporibus soluta vero vel rem repellendus tenetur itaque nam ipsam
-            commodi similique laboriosam magni, nobis dignissimos debitis
-            molestias qui. Quaerat suscipit nemo dolor eveniet recusandae minima
-            alias, sed blanditiis unde aliquid, labore vel quo nesciunt error?
-            Molestiae perspiciatis accusantium reprehenderit veniam fuga cumque
-            nihil, necessitatibus ullam dolore adipisci numquam fugiat quo
-            similique tenetur quia inventore atque nostrum, amet autem
-            voluptatibus unde possimus! Harum quas id nam iste nesciunt fuga
-            illo omnis! Possimus similique est commodi officiis. Eos vitae
-            perferendis dolore harum iusto, quibusdam dolorem modi facilis
-            tempore qui dolores quam nihil vel debitis voluptatibus corporis,
-            distinctio deleniti! Eveniet atque suscipit aliquam nam perferendis
-            aut quisquam Link aliquid veniam enim nostrum ratione error
-            doloremque eius ullam totam, reprehenderit consectetur blanditiis
-            non, repudiandae, sed accusantium. Reiciendis cum earum fugit
-            tenetur est ea. Assumenda tenetur vitae architecto, amet sed quo
-            debitis atque, odit voluptas officia Link perferendis reiciendis
-            corporis! Placeat hic nulla recusandae facilis laboriosam enim
-            consectetur praesentium sunt esse at harum, voluptatum rem ipsum
-            quos doloremque. Obcaecati, aliquid magni eos esse in non molestias
-            nulla cumque minus perferendis doloribus inventore aliquam
-            accusantium ut veritatis exercitationem quidem saepe cum, aperiam
-            aspernatur repellat nihil accusamus? Cumque modi excepturi amet
-            officia incidunt nobis quaerat tenetur reiciendis atque. Hic amet
-            ipsam vitae eveniet ipsa! Nostrum eos corrupti velit maxime quisquam
-            deleniti et ex sapiente consectetur nihil laborum, voluptatem omnis
-            nam animi cum voluptatibus temporibus modi cupiditate placeat.
-            Cupiditate nisi possimus expedita tenetur perspiciatis fugit,
-            architecto blanditiis hic, ipsam dolor cum?
-          </motion.div>
-          )}
-          </InView>
-
-          <InView threshold={0.2}>
             {({ ref, inView }) => (
               <motion.div
                 ref={ref}
                 initial={{ opacity: 0 }}
-                animate={inView ? { opacity: 1 } : { opacity: 0 }}
-                transition={{ duration: 1 }}
-                className="border-4 border-green-900 border-solid mb-4"
+                animate={inView ? { opacity: 1 } : { opacity: 0.4 }}
+                transition={{ type: "spring", damping: 12, stiffness: 200 }}
+                className="my-12 box-border p-12 shadow-[0_2px_5px_0px_rgba(0,0,0,0.25)]"
                 id="about"
               >
-                <h1 className="text-lg">suraj kumar</h1>
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                Accusantium, ducimus quisquam quis, nisi modi reprehenderit,
-                quam delectus vitae illum voluptate dolorem cumque. Rem nobis at
-                illo neque iure eos, dolor, autem ratione mollitia molestiae cum
-                vitae quod temporibus eveniet aliquid accusantium enim impedit
-                sequi dolores repudiandae nesciunt. Beatae tempora mollitia
-                repudiandae ratione, nemo praesentium. Omnis, officiis quos.
-                Consequatur temporibus soluta vero vel rem repellendus tenetur
-                itaque nam ipsam commodi similique laboriosam magni, nobis
-                dignissimos debitis molestias qui. Quaerat suscipit nemo dolor
-                eveniet recusandae minima alias, sed blanditiis unde aliquid,
-                labore vel quo nesciunt error? Molestiae perspiciatis
-                accusantium reprehenderit veniam fuga cumque nihil,
-                necessitatibus ullam dolore adipisci numquam fugiat quo
-                similique tenetur quia inventore atque nostrum, amet autem
-                voluptatibus unde possimus! Harum quas id nam iste nesciunt fuga
-                illo omnis! Possimus similique est commodi officiis. Eos vitae
-                perferendis dolore harum iusto, quibusdam dolorem modi facilis
-                tempore qui dolores quam nihil vel debitis voluptatibus
-                corporis, distinctio deleniti! Eveniet atque suscipit aliquam
-                nam perferendis aut quisquam Link aliquid veniam enim nostrum
-                ratione error doloremque eius ullam totam, reprehenderit
-                consectetur blanditiis non, repudiandae, sed accusantium.
-                Reiciendis cum earum fugit tenetur est ea. Assumenda tenetur
-                vitae architecto, amet sed quo debitis atque, odit voluptas
-                officia Link perferendis reiciendis corporis! Placeat hic nulla
-                recusandae facilis laboriosam enim consectetur praesentium sunt
-                esse at harum, voluptatum rem ipsum quos doloremque. Obcaecati,
-                aliquid magni eos esse in non molestias nulla cumque minus
-                perferendis doloribus inventore aliquam accusantium ut veritatis
-                exercitationem quidem saepe cum, aperiam aspernatur repellat
-                nihil accusamus? Cumque modi excepturi amet officia incidunt
-                nobis quaerat tenetur reiciendis atque. Hic amet ipsam vitae
-                eveniet ipsa! Nostrum eos corrupti velit maxime quisquam
-                deleniti et ex sapiente consectetur nihil laborum, voluptatem
-                omnis nam animi cum voluptatibus temporibus modi cupiditate
-                placeat. Cupiditate nisi possimus expedita tenetur perspiciatis
-                fugit, architecto blanditiis hic, ipsam dolor cum?
+                <div className="flex flex-col md:flex-row">
+                  <div className="basis-1/2 ">
+                    <h1 className="text-3xl mb-5">About</h1>
+                    Hello! I’m Suraj Kumar. I am passionate about UI/UX design
+                    and Web Design. I am a skilled front-end developer and
+                    master of graphic design tools such as Photoshop and Sketch.
+                    I am a quick learner and a team worker that gets the job
+                    done. I can easily capitalize on low hanging fruits and
+                    quickly maximize timely deliverables for real-time schemas
+                  </div>
+                  <div className="basis-1/2 md:ml-[8.33%]">
+                    <h1 className="text-3xl mb-5">Bio</h1>
+                    <div className="flex pb-2" >
+                    <div className="w-[41.1%] flex flex-row"><AiFillCalendar size={25}/> 
+                     <p className="pl-[20px]">Age</p>
+                     </div>
+                    <h2> 20</h2> 
+                    </div>
+
+                    <div className="flex pb-2" >
+                    <div className="w-[41.1%] flex flex-row"><AiOutlineMail size={25}/> 
+                     <p className="pl-[20px]">Email</p>
+                     </div>
+                    <h2> kumarsuraj.suraj151@gmail.com</h2> 
+                    </div>
+
+                    <div className="flex pb-2" >
+                    <div className="w-[41.1%] flex flex-row"><AiTwotonePhone size={25}/> 
+                     <p className="pl-[20px]">Phone</p>
+                     </div>
+                    <h2> 8905735263</h2> 
+                    </div>
+
+                    <div className="flex pb-2" >
+                    <div className="w-[41.1%] flex flex-row"><BiMap size={25}/> 
+                     <p className="pl-[20px]">Address</p>
+                     </div>
+                    <h2> Khikhundoo Deoria Uttar pradesh</h2> 
+                    </div>
+                  </div>
+                </div>
               </motion.div>
             )}
           </InView>
-
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            className="border-4 border-green-900 border-solid mb-6"
-            id="skills"
-          >
-            <h1 className="text-lg">About</h1>
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-            Accusantium, ducimus quisquam quis, nisi modi reprehenderit, quam
-            delectus vitae illum voluptate dolorem cumque. Rem nobis at illo
-            neque iure eos, dolor, autem ratione mollitia molestiae cum vitae
-            quod temporibus eveniet aliquid accusantium enim impedit sequi
-            dolores repudiandae nesciunt. Beatae tempora mollitia repudiandae
-            ratione, nemo praesentium. Omnis, officiis quos. Consequatur
-            temporibus soluta vero vel rem repellendus tenetur itaque nam ipsam
-            commodi similique laboriosam magni, nobis dignissimos debitis
-            molestias qui. Quaerat suscipit nemo dolor eveniet recusandae minima
-            alias, sed blanditiis unde aliquid, labore vel quo nesciunt error?
-            Molestiae perspiciatis accusantium reprehenderit veniam fuga cumque
-            nihil, necessitatibus ullam dolore adipisci numquam fugiat quo
-            similique tenetur quia inventore atque nostrum, amet autem
-            voluptatibus unde possimus! Harum quas id nam iste nesciunt fuga
-            illo omnis! Possimus similique est commodi officiis. Eos vitae
-            perferendis dolore harum iusto, quibusdam dolorem modi facilis
-            tempore qui dolores quam nihil vel debitis voluptatibus corporis,
-            distinctio deleniti! Eveniet atque suscipit aliquam nam perferendis
-            aut quisquam Link aliquid veniam enim nostrum ratione error
-            doloremque eius ullam totam, reprehenderit consectetur blanditiis
-            non, repudiandae, sed accusantium. Reiciendis cum earum fugit
-            tenetur est ea. Assumenda tenetur vitae architecto, amet sed quo
-            debitis atque, odit voluptas officia Link perferendis reiciendis
-            corporis! Placeat hic nulla recusandae facilis laboriosam enim
-            consectetur praesentium sunt esse at harum, voluptatum rem ipsum
-            quos doloremque. Obcaecati, aliquid magni eos esse in non molestias
-            nulla cumque minus perferendis doloribus inventore aliquam
-            accusantium ut veritatis exercitationem quidem saepe cum, aperiam
-            aspernatur repellat nihil accusamus? Cumque modi excepturi amet
-            officia incidunt nobis quaerat tenetur reiciendis atque. Hic amet
-            ipsam vitae eveniet ipsa! Nostrum eos corrupti velit maxime quisquam
-            deleniti et ex sapiente consectetur nihil laborum, voluptatem omnis
-            nam animi cum voluptatibus temporibus modi cupiditate placeat.
-            Cupiditate nisi possimus expedita tenetur perspiciatis fugit,
-            architecto blanditiis hic, ipsam dolor cum?
-          </motion.div>
+          <Skills/>
           <motion.div
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             transition={{ duration: 1 }}
             data-aos="fade-up"
-            className="border-4 border-green-900 border-solid"
+            className="border-4 "
             id="Experience"
           >
             <h1 className="text-lg">Experience</h1>Lorem ipsum, dolor sit amet
